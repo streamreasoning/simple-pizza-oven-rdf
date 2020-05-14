@@ -1,0 +1,34 @@
+@prefix rr:    <http://www.w3.org/ns/r2rml#> .
+@prefix :      <http://linkeddata.stream/ontologies/cooking> .
+@prefix pizza: <http://www.co-ode.org/ontologies/pizza/pizza.owl#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xml:   <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<urn:MAPID-a2264f483ef64344820662bd8fb8b61f_1>
+        a                      rr:TriplesMap ;
+        rr:logicalTable        [ a            rr:R2RMLView ;
+                                 rr:sqlQuery  "select `name`, `tempAvg`, `tempStd` from `db`.`Pizza`"
+                               ] ;
+        rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                                 rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                                 rr:column    "tempAvg" ;
+                                                 rr:datatype  xsd:decimal ;
+                                                 rr:termType  rr:Literal
+                                               ] ;
+                                 rr:predicate  <http://linkeddata.stream/ontologies/cooking#tempAvg>
+                               ] ;
+        rr:predicateObjectMap  [ a             rr:PredicateObjectMap ;
+                                 rr:objectMap  [ a            rr:TermMap , rr:ObjectMap ;
+                                                 rr:column    "tempStd" ;
+                                                 rr:datatype  xsd:decimal ;
+                                                 rr:termType  rr:Literal
+                                               ] ;
+                                 rr:predicate  <http://linkeddata.stream/ontologies/cooking#tempStd>
+                               ] ;
+        rr:subjectMap          [ a            rr:TermMap , rr:SubjectMap ;
+                                 rr:template  "http://www.co-ode.org/ontologies/pizza/pizza.owl#{name}" ;
+                                 rr:termType  rr:IRI
+                               ] .

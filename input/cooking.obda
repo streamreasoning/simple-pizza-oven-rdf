@@ -1,0 +1,15 @@
+[PrefixDeclaration]
+:		http://linkeddata.stream/ontologies/cooking
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+pizza:		http://www.co-ode.org/ontologies/pizza/pizza.owl#
+
+[MappingDeclaration] @collection [[
+mappingId	MAPID-a2264f483ef64344820662bd8fb8b61f
+target		pizza:{name} :#tempAvg {tempAvg}^^xsd:decimal ; :#tempStd {tempStd}^^xsd:decimal . 
+source		select `name`, `tempAvg`, `tempStd` from `db`.`Pizza`
+]]
+

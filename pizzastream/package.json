@@ -1,0 +1,16 @@
+{
+  "name": "pizzastream",
+  "version": "1.0.0",
+  "description": "A simple JSON-LD pizzastream exposed via Web Socket",
+  "main": "pizzastream.js",
+  "scripts": {
+    "start": "node pizzastream.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emanuele Falzone",
+  "license": "MIT",
+  "dependencies": {
+    "uuid": "^8.0.0",
+    "ws": "^7.2.5"
+  }
+}

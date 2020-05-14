@@ -1,0 +1,80 @@
+version: '3.5'
+
+networks:
+  pizzanet:
+    name: pizzanet
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    ports:
+      - "3306:3306"
+      - "33060:33060"
+    volumes:
+      - $PWD/sql/:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+    networks:
+      - pizzanet
+
+  ontop:
+    image: streamreasoning/ontop:3.0.1
+    container_name: ontop
+    ports:
+      - "7999:8080"
+    volumes:
+      - $PWD/input:/ontop/input
+    environment:
+      - TTL_PATH=cooking-mapping.ttl
+      - ODBA_PATH=cooking.obda
+      - PROPERTIES_PATH=cooking.properties
+    networks:
+      - pizzanet
+
+  pizzastream:
+    build: ./pizzastream
+    container_name: pizzastream
+    ports:
+      - "7997:8080"
+    networks:
+      - pizzanet
+
+  streamhub:
+    image: streamreasoning/streamhub:1.1
+    container_name: streamhub
+    ports: 
+      - "9292:9292"
+    networks:
+      - pizzanet
+
+  jasper:
+    image: streamreasoning/jasper:1.2
+    container_name: jasper
+    ports:
+      - "8181-8200:8181-8200"
+    networks:
+      - pizzanet   
+
+  notebook:
+    build: ./notebook
+    container_name: notebook
+    ports:
+      - "8080:8888"
+    networks:
+      - pizzanet
+    volumes:
+      - $PWD/notebook/:/home/jovyan/work
+
+  jena:
+    image: stain/jena-fuseki
+    container_name: jena
+    ports:
+      - "3030:3030"
+    environment:
+      - ADMIN_PASSWORD=pw123
+    networks:
+      - pizzanet
