@@ -103,9 +103,17 @@ There are many components:
 - [**jasper**](https://github.com/riccardotommasini/yasper)
 - [**ontop**](https://ontop-vkg.org/)
 
-A [demo]((https://github.com/riccardotommasini/colorwave/tree/RW-2020)) using the same stack of technologies was presented during [RW-2020](http://streamreasoning.org/events/rw2020).
+A [demo](https://github.com/riccardotommasini/colorwave/tree/RW-2020) using the same stack of technologies was presented during [RW-2020](http://streamreasoning.org/events/rw2020).
 
 The access jupyter at [localhost](http://localhost:8080).
 
 **TO BE NOTICED**:
 jasper 1.1 does not support the sparql service clause, thus you have to extract the ontology from ontop and *statically* use it inside jasper.
+
+## TODO
+
+Create a Jupyter notebook, that:
+- exploits rsplib and jasper.
+- uses a RSP-QL query to filter the pizzas that are not correctly cooked.
+
+A pizza is not correctly cooked if, during its cooking process, the oven reaches a temperature that deviates from the recommended average temperature for 2 or more standard deviations.
