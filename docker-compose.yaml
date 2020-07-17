@@ -39,7 +39,8 @@ services:
     build: ./pizzastream
     container_name: pizzastream
     ports:
-      - "7997:8080"
+      - "7997:9400"
+      - "7998:9500"
     networks:
       - pizzanet
 
