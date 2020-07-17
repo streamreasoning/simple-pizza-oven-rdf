@@ -108,4 +108,4 @@ A [demo]((https://github.com/riccardotommasini/colorwave/tree/RW-2020)) using th
 The access jupyter at [localhost](http://localhost:8080).
 
 **TO BE NOTICED**:
-jasper 1.1 does not support sparql service clause, thus you have to extract the ontology from ontop and *statically* use it inside jasper.
+jasper 1.1 does not support the sparql service clause, thus you have to extract the ontology from ontop and *statically* use it inside jasper.
