@@ -68,7 +68,7 @@ services:
     networks:
       - pizzanet
     volumes:
-      - $PWD/notebook/:/home/jovyan/work
+      - $PWD/notebook/lectures:/home/jovyan/work
 
   jena:
     image: stain/jena-fuseki
