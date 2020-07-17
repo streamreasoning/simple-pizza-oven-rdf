@@ -10,6 +10,7 @@
   "author": "Emanuele Falzone",
   "license": "MIT",
   "dependencies": {
+    "gaussian": "^1.1.0",
     "uuid": "^8.0.0",
     "ws": "^7.2.5"
   }
