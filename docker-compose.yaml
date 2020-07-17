@@ -35,9 +35,9 @@ services:
     networks:
       - pizzanet
 
-  pizzastream:
-    build: ./pizzastream
-    container_name: pizzastream
+  streams:
+    build: ./streams
+    container_name: streams
     ports:
       - "7997:9400"
       - "7998:9500"
